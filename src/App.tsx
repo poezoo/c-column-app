@@ -6,12 +6,16 @@ import { About } from './pages/About';
 import { Column } from './pages/Column';
 import { Contact } from './pages/Contact';
 import { MyPage } from './pages/MyPage';
+import { Signup } from './pages/Signup';
 
 import { Header } from './components/Header';
 const App = () => (
     <Router>
         <Header />
         <Switch>
+            <Route path="/signup">
+                <Signup />
+            </Route>
             <Route path="/about">
                 <About />
             </Route>
@@ -24,7 +28,7 @@ const App = () => (
             <Route path="/mypage">
                 <MyPage />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
                 <Top />
             </Route>
         </Switch>
