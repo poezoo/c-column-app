@@ -8,7 +8,8 @@
         "webpack-dev-server": "webpack-dev-server",
         "dev": "webpack-dev-server --mode=development",
         "prod": "webpack --mode=production",
-        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+        "format": "prettier '*/**/*.{js,ts,tsx}' --write"
     },
     "repository": {
         "type": "git",
