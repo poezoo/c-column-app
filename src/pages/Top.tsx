@@ -1,7 +1,13 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
-export const Top: React.FC = () => (
-  <section>
-    <h1>top page</h1>
-  </section>
-);
+export const Top: React.FC = () => {
+  function handleClick(e) {
+    e.preventDefault();
+  }
+
+  return (
+    <section>
+      <h2>top page</h2>
+    </section>
+  );
+};

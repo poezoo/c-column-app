@@ -1,24 +1,30 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import { useAuth } from '../contexts/AuthContext';
 
-export const Header: React.FC = () => (
-  <header>
-    <ul>
-      <li>
-        <Link to="/">Top</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/column">column</Link>
-      </li>
-      <li>
-        <Link to="/contact">contact</Link>
-      </li>
-      <li>
-        <Link to="/mypage">mypage</Link>
-      </li>
-    </ul>
-  </header>
-);
+export const Header: React.FC = () => {
+  const location = useLocation();
+  const { currentUser } = useAuth();
+  return (
+    <Navbar bg="light" variant="light">
+      <Navbar.Brand href="/">c-therapy-app</Navbar.Brand>
+      <Nav className="mr-auto" activeKey={location.pathname} defaultActiveKey="/">
+        {currentUser ? (
+          <>
+            <Nav.Link href="/">Top</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/contact">お問い合わせ</Nav.Link>
+            <Nav.Link href="/mypage">マイページ</Nav.Link>
+            <Nav.Link href="/column">コラム法</Nav.Link>
+          </>
+        ) : (
+          <>
+            <Nav.Link href="/signup">アカウント登録</Nav.Link>
+            <Nav.Link href="/login">ログイン</Nav.Link>
+          </>
+        )}
+      </Nav>
+    </Navbar>
+  );
+};

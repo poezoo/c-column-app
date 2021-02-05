@@ -1,5 +1,8 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv');
+const env = dotenv.config().parsed;
 module.exports = {
   context: __dirname,
   entry: './src/index.tsx',
@@ -10,6 +13,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    hot: true,
   },
   module: {
     rules: [
@@ -38,6 +42,9 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
       filename: 'index.html',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(env),
     }),
   ],
 };

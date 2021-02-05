@@ -1,27 +1,26 @@
 import React, { useRef, useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 // import { Formik, Field, Form, FormikHelpers } from 'formik';
-export const Signup: React.FC = () => {
+
+export const Login: React.FC = () => {
+  const history = useHistory();
   const emailRef = useRef<HTMLInputElement>();
   const passwordRef = useRef<HTMLInputElement>();
-  const passwordConfirmRef = useRef<HTMLInputElement>();
-  const { signup, currentUser } = useAuth();
+  const { login, currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('パスワードが一致しません');
-    }
-
     try {
       setError('');
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push('/');
     } catch {
-      setError('Failed to create an account');
+      setError('Failed to log in');
     }
     setLoading(false);
   }
@@ -30,10 +29,10 @@ export const Signup: React.FC = () => {
     <section>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">アカウント登録</h2>
+          <h2 className="text-center mb-4">ログイン</h2>
           {currentUser && currentUser.email}
           {error && <Alert variant="danger">{error}</Alert>}
-          <form>
+          <Form>
             <Form.Group id="email">
               <Form.Label>メールアドレス</Form.Label>
               <Form.Control type="email" ref={emailRef} required></Form.Control>
@@ -42,14 +41,13 @@ export const Signup: React.FC = () => {
               <Form.Label>パスワード</Form.Label>
               <Form.Control type="password" ref={passwordRef} required></Form.Control>
             </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>パスワード確認</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required></Form.Control>
-            </Form.Group>
             <Button onClick={handleSubmit} disabled={loading} className="w-100" type="submit">
-              登録する
+              ログイン
             </Button>
-          </form>
+          </Form>
+          <div className="w-100 text-center mt-3">
+            <Link to="/forgot-password">パスワードを忘れた方はこちら</Link>
+          </div>
         </Card.Body>
       </Card>
     </section>
