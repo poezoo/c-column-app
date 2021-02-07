@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/AuthContext';
-import { PrivateRoute } from './components/PrivateRoute';
+import { PrivateRoute } from './components/commons/PrivateRoute';
 import { Top } from './pages/Top';
 import { About } from './pages/About';
 import { Column } from './pages/Column';
@@ -15,7 +15,7 @@ import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
 import { ForgotPassword } from './pages/ForgotPassword';
 
-import { Header } from './components/Header';
+import { Header } from './components/commons/Header';
 const App = () => {
   return (
     <Router>

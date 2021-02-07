@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 
 export const Header: React.FC = () => {
   const location = useLocation();
