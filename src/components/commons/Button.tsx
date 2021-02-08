@@ -7,11 +7,14 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary';
 };
 
+export const Button: FC<ButtonProps> = ({ children, variant }) => (
+  <StyledButton variant={variant}>{children}</StyledButton>
+);
+
 const styles = {
   primary: css`
     color: ${colors.WHITE};
     background-color: ${colors.BLUE};
-    border-style: none;
   `,
   secondary: css`
     color: ${colors.BLUE};
@@ -19,10 +22,6 @@ const styles = {
     border: 2px solid ${colors.BLUE};
   `,
 };
-
-export const Button: FC<ButtonProps> = ({ children, variant }) => (
-  <StyledButton variant={variant}>{children}</StyledButton>
-);
 
 const StyledButton = styled.button`
   font-size: 1em;
