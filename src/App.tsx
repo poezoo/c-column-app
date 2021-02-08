@@ -21,21 +21,17 @@ const App: React.FC = () => {
       <AuthProvider>
         <GlobalStyle />
         <Header />
-        <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-          <div className="w-100" style={{ maxWidth: '600px' }}>
-            <Switch>
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route path="/forgot-password" component={ForgotPassword} />
-              <PrivateRoute path="/about" component={About} />
-              <PrivateRoute path="/column" component={Column} />
-              <PrivateRoute path="/contact" component={Contact} />
-              <PrivateRoute path="/mypage" component={MyPage} />
-              <PrivateRoute path="/update-profile" component={UpdateProfile} />
-              <PrivateRoute exact path="/" component={Top} />
-            </Switch>
-          </div>
-        </Container>
+        <Switch>
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <PrivateRoute path="/about" component={About} />
+          <PrivateRoute path="/column" component={Column} />
+          <PrivateRoute path="/contact" component={Contact} />
+          <PrivateRoute path="/mypage" component={MyPage} />
+          <PrivateRoute path="/update-profile" component={UpdateProfile} />
+          <PrivateRoute exact path="/" component={Top} />
+        </Switch>
       </AuthProvider>
     </Router>
   );

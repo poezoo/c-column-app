@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
+import { BootstrapedContainer } from '../components/commons/Wrapper';
 
 export const ForgotPassword: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>();
@@ -24,7 +25,7 @@ export const ForgotPassword: React.FC = () => {
   }
 
   return (
-    <section>
+    <BootstrapedContainer>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">パスワード再発行</h2>
@@ -47,6 +48,6 @@ export const ForgotPassword: React.FC = () => {
       <div className="w-100 text-center mt-2">
         アカウントが必要ですか? <Link to="/signup">アカウント登録</Link>
       </div>
-    </section>
+    </BootstrapedContainer>
   );
 };

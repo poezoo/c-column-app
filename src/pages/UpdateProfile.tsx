@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Button, Card, Alert, Form } from 'react-bootstrap';
+import { BootstrapedContainer } from '../components/commons/Wrapper';
 
 export const UpdateProfile: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>();
@@ -42,7 +43,7 @@ export const UpdateProfile: React.FC = () => {
   }
 
   return (
-    <>
+    <BootstrapedContainer>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">プロフィール更新</h2>
@@ -73,6 +74,6 @@ export const UpdateProfile: React.FC = () => {
       <div className="w-100 text-center mt-2">
         <Link to="/">更新しない</Link>
       </div>
-    </>
+    </BootstrapedContainer>
   );
 };

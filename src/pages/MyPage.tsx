@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Button, Card, Alert } from 'react-bootstrap';
+import { BootstrapedContainer } from '../components/commons/Wrapper';
 
 export const MyPage: React.FC = () => {
   const { logout, currentUser } = useAuth();
@@ -20,7 +21,7 @@ export const MyPage: React.FC = () => {
     setLoading(false);
   };
   return (
-    <section>
+    <BootstrapedContainer>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">マイページ</h2>
@@ -34,6 +35,6 @@ export const MyPage: React.FC = () => {
           </Button>
         </Card.Body>
       </Card>
-    </section>
+    </BootstrapedContainer>
   );
 };

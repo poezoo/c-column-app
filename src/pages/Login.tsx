@@ -3,6 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 // import { Formik, Field, Form, FormikHelpers } from 'formik';
+import { BootstrapedContainer } from '../components/commons/Wrapper';
 
 export const Login: React.FC = () => {
   const history = useHistory();
@@ -26,7 +27,7 @@ export const Login: React.FC = () => {
   }
 
   return (
-    <section>
+    <BootstrapedContainer>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">ログイン</h2>
@@ -50,6 +51,6 @@ export const Login: React.FC = () => {
           </div>
         </Card.Body>
       </Card>
-    </section>
+    </BootstrapedContainer>
   );
 };

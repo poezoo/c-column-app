@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
+import { BootstrapedContainer } from '../components/commons/Wrapper';
+
 // import { Formik, Field, Form, FormikHelpers } from 'formik';
 export const Signup: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>();
@@ -27,7 +29,7 @@ export const Signup: React.FC = () => {
   }
 
   return (
-    <section>
+    <BootstrapedContainer>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">アカウント登録</h2>
@@ -52,6 +54,6 @@ export const Signup: React.FC = () => {
           </form>
         </Card.Body>
       </Card>
-    </section>
+    </BootstrapedContainer>
   );
 };
