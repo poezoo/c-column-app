@@ -23,7 +23,7 @@ const styles = {
   `,
 };
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<Pick<ButtonProps, 'variant'>>`
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
