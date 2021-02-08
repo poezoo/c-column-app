@@ -10,6 +10,7 @@ const colors = {
   LEMON: '#FFF384',
   ORANGE: '#F3A367',
   WHITE: '#FFFFFF',
+  RED: '#DB7093',
 };
 
 export default colors;
