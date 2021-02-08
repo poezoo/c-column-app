@@ -36,6 +36,7 @@
         "react-router-dom": "^5.2.0",
         "style-loader": "^2.0.0",
         "styled-components": "^5.2.1",
+        "styled-reset": "^4.3.4",
         "yup": "^0.32.8"
     },
     "devDependencies": {
