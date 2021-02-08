@@ -1,13 +1,12 @@
-import React, { FC, ReactNode } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import colors from '../commons/colors';
 
 type ButtonProps = {
-  children: ReactNode;
   variant?: 'primary' | 'secondary';
 };
 
-export const Button: FC<ButtonProps> = ({ children, variant }) => (
+export const Button: React.FC<ButtonProps> = ({ children, variant }) => (
   <StyledButton variant={variant}>{children}</StyledButton>
 );
 
